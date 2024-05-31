@@ -1,0 +1,186 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  username  String
+  password  String
+  inquiries Inquiry[]
+  payments  Payment[]
+}
+
+model Inquiry {
+  id                        Int    @id @default(autoincrement())
+  kodeproduk                String
+  waktu                     String
+  idpelanggan1              String
+  idpelanggan2              String
+  idpelanggan3              String
+  nominal                   String
+  biayaadmin                String
+  uid                       String
+  pin                       String
+  ref1                      String
+  ref2                      String
+  ref3                      String
+  status                    String
+  keterangan                String
+  fee                       String
+  saldoterpotong            String
+  switcherid                String
+  billercode                String
+  customerid1               String
+  customerid2               String
+  customerid3               String
+  billquantity              String
+  noref1                    String
+  noref2                    String
+  customername              String
+  customeraddress           String
+  customerdetailinformation String
+  billeradmincharge         String
+  totalbillamount           String
+  pdamname                  String
+  monthperiod1              String
+  yearperiod1               String
+  firstmeterread1           String
+  lastmeterread1            String
+  penalty1                  String
+  billamount1               String
+  miscamount1               String
+  monthperiod2              String
+  yearperiod2               String
+  firstmeterread2           String
+  lastmeterread2            String
+  penalty2                  String
+  billamount2               String
+  miscamount2               String
+  monthperiod3              String
+  yearperiod3               String
+  firstmeterread3           String
+  lastmeterread3            String
+  penalty3                  String
+  billamount3               String
+  miscamount3               String
+  monthperiod4              String
+  yearperiod4               String
+  firstmeterread4           String
+  lastmeterread4            String
+  penalty4                  String
+  billamount4               String
+  miscamount4               String
+  monthperiod5              String
+  yearperiod5               String
+  firstmeterread5           String
+  lastmeterread5            String
+  penalty5                  String
+  billamount5               String
+  miscamount5               String
+  monthperiod6              String
+  yearperiod6               String
+  firstmeterread6           String
+  lastmeterread6            String
+  penalty6                  String
+  billamount6               String
+  miscamount6               String
+  typemsg                   String
+  totalbayar                String
+  saldo                     String
+  user                      User   @relation(fields: [userId], references: [id])
+  userId                    Int
+}
+
+model Payment {
+  id                        Int    @id @default(autoincrement())
+  kodeproduk                String
+  waktu                     String
+  idpelanggan1              String
+  idpelanggan2              String
+  idpelanggan3              String
+  nominal                   String
+  biayaadmin                String
+  uid                       String
+  pin                       String
+  ref1                      String
+  ref2                      String
+  ref3                      String
+  status                    String
+  keterangan                String
+  fee                       String
+  saldoterpotong            String
+  switcherid                String
+  billercode                String
+  customerid1               String
+  customerid2               String
+  customerid3               String
+  billquantity              String
+  noref1                    String
+  noref2                    String
+  customername              String
+  customeraddress           String
+  customerdetailinformation String
+  billeradmincharge         String
+  totalbillamount           String
+  pdamname                  String
+  monthperiod1              String
+  yearperiod1               String
+  firstmeterread1           String
+  lastmeterread1            String
+  penalty1                  String
+  billamount1               String
+  miscamount1               String
+  monthperiod2              String
+  yearperiod2               String
+  firstmeterread2           String
+  lastmeterread2            String
+  penalty2                  String
+  billamount2               String
+  miscamount2               String
+  monthperiod3              String
+  yearperiod3               String
+  firstmeterread3           String
+  lastmeterread3            String
+  penalty3                  String
+  billamount3               String
+  miscamount3               String
+  monthperiod4              String
+  yearperiod4               String
+  firstmeterread4           String
+  lastmeterread4            String
+  penalty4                  String
+  billamount4               String
+  miscamount4               String
+  monthperiod5              String
+  yearperiod5               String
+  firstmeterread5           String
+  lastmeterread5            String
+  penalty5                  String
+  billamount5               String
+  miscamount5               String
+  monthperiod6              String
+  yearperiod6               String
+  firstmeterread6           String
+  lastmeterread6            String
+  penalty6                  String
+  billamount6               String
+  miscamount6               String
+  typemsg                   String
+  totalbayar                String
+  saldo                     String
+  urlstruk                  String
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
