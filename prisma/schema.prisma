@@ -20,10 +20,12 @@ model User {
   password  String
   inquiries Inquiry[]
   payments  Payment[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
 }
 
 model Inquiry {
-  id                        Int    @id @default(autoincrement())
+  id                        Int      @id @default(autoincrement())
   kodeproduk                String
   waktu                     String
   idpelanggan1              String
@@ -99,12 +101,14 @@ model Inquiry {
   typemsg                   String
   totalbayar                String
   saldo                     String
-  user                      User   @relation(fields: [userId], references: [id])
+  user                      User     @relation(fields: [userId], references: [id])
   userId                    Int
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @default(now()) @updatedAt
 }
 
 model Payment {
-  id                        Int    @id @default(autoincrement())
+  id                        Int      @id @default(autoincrement())
   kodeproduk                String
   waktu                     String
   idpelanggan1              String
@@ -181,6 +185,8 @@ model Payment {
   totalbayar                String
   saldo                     String
   urlstruk                  String
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
+  user                      User     @relation(fields: [userId], references: [id])
+  userId                    Int
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @default(now()) @updatedAt
 }
